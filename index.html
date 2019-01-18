@@ -66,6 +66,50 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Vue" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/18/Vue/" class="article-date">
+  <time datetime="2019-01-18T08:17:55.657Z" itemprop="datePublished">2019-01-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/18/Vue/">Vue</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>计算属性模块：{<br>计算属性：function（）{}//geter，一般只有这个。</p>
+<p>}</p>
+<p>计算属性模块：{<br>计算属性：{<br>getter：function（）{}，<br>setter：function（）{}//默认只有getter，可以添加<br>}</p>
+<p>}</p>
+<hr>
+<p>var vm = new Vue({<br>  el: ‘#demo’,<br>  data: {<br>    firstName: ‘Foo’,<br>    lastName: ‘Bar’,<br>    fullName: ‘Foo Bar’<br>  },<br>  watch: {//侦听器<br>    firstName: function (val) {<br>      this.fullName = val + ‘ ‘ + this.lastName<br>    },<br>    lastName: function (val) {<br>      this.fullName = this.firstName + ‘ ‘ + val<br>    }<br>  }<br>})</p>
+<hr>
+<p>computed: {<br>  now: function () {<br>    return Date.now()<br>  }<br>}<br>这种是返回方法会消耗等很久，返回属性会有缓存。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/18/Vue/" data-id="cjr1td52a0002jwumlfv1ca95" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-nodejs stream流" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/01/18/nodejs stream流/" class="article-date">
@@ -108,7 +152,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/18/nodejs stream流/" data-id="cjr1ov3940003xgumz2jep53a" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/18/nodejs stream流/" data-id="cjr1td52h0004jwum3fkot8cu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -159,7 +203,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/18/nodejsUtil/" data-id="cjr1ov3980004xgumfh82ocs6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/18/nodejsUtil/" data-id="cjr1td52k0005jwumhoykgc1t" class="article-share-link">Share</a>
       
       
     </footer>
@@ -222,7 +266,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/18/nodejshttp模块/" data-id="cjr1ov39a0005xgumb6fkoidn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/18/nodejshttp模块/" data-id="cjr1td52o0006jwumbn3ecj2g" class="article-share-link">Share</a>
       
       
     </footer>
@@ -291,7 +335,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/18/http/" data-id="cjr1ov38w0001xgumtakzs9bu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/18/http/" data-id="cjr1td52e0003jwumhxzyc1q0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -425,7 +469,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/17/you/" data-id="cjr1ov39g0006xgumeq6sagw1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/17/you/" data-id="cjr1td52u0008jwumpeg7t6bu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -452,7 +496,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/17/New Document/" data-id="cjr1ov38k0000xgum9clhmrf1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/17/New Document/" data-id="cjr1td51t0000jwum6kv3r77i" class="article-share-link">Share</a>
       
       
     </footer>
@@ -488,7 +532,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/17/你好啊/" data-id="cjr1ov39j0007xgum37gkr4y1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/17/你好啊/" data-id="cjr1td52r0007jwum26kbvqma" class="article-share-link">Share</a>
       
       
     </footer>
@@ -533,7 +577,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/17/hello-world/" data-id="cjr1ov3910002xgumsvb0dmvs" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/17/hello-world/" data-id="cjr1td5260001jwumthaet03m" class="article-share-link">Share</a>
       
       
     </footer>
@@ -574,6 +618,10 @@
       <ul>
         
           <li>
+            <a href="/2019/01/18/Vue/">Vue</a>
+          </li>
+        
+          <li>
             <a href="/2019/01/18/nodejs stream流/">node.js stream</a>
           </li>
         
@@ -587,10 +635,6 @@
         
           <li>
             <a href="/2019/01/18/http/">1月18日 http协议</a>
-          </li>
-        
-          <li>
-            <a href="/2019/01/17/you/">一篇糟糕的md文件写成html</a>
           </li>
         
       </ul>

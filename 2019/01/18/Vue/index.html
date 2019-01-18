@@ -5,20 +5,20 @@
   
 
   
-  <title>应该灿烂的神国</title>
+  <title>Vue | 应该灿烂的神国</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="title: wuliao你好啊啊啊">
+  <meta name="description" content="计算属性模块：{计算属性：function（）{}//geter，一般只有这个。 } 计算属性模块：{计算属性：{getter：function（）{}，setter：function（）{}//默认只有getter，可以添加} }  var vm = new Vue({  el: ‘#demo’,  data: {    firstName: ‘Foo’,    lastName: ‘Bar’,">
 <meta name="keywords" content="今天吃什么">
 <meta property="og:type" content="article">
-<meta property="og:title" content="应该灿烂的神国">
-<meta property="og:url" content="http://yoursite.com/2019/01/17/New Document/index.html">
+<meta property="og:title" content="Vue">
+<meta property="og:url" content="http://yoursite.com/2019/01/18/Vue/index.html">
 <meta property="og:site_name" content="应该灿烂的神国">
-<meta property="og:description" content="title: wuliao你好啊啊啊">
+<meta property="og:description" content="计算属性模块：{计算属性：function（）{}//geter，一般只有这个。 } 计算属性模块：{计算属性：{getter：function（）{}，setter：function（）{}//默认只有getter，可以添加} }  var vm = new Vue({  el: ‘#demo’,  data: {    firstName: ‘Foo’,    lastName: ‘Bar’,">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-18T06:12:21.412Z">
+<meta property="og:updated_time" content="2019-01-18T08:50:06.065Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="应该灿烂的神国">
-<meta name="twitter:description" content="title: wuliao你好啊啊啊">
+<meta name="twitter:title" content="Vue">
+<meta name="twitter:description" content="计算属性模块：{计算属性：function（）{}//geter，一般只有这个。 } 计算属性模块：{计算属性：{getter：function（）{}，setter：function（）{}//默认只有getter，可以添加} }  var vm = new Vue({  el: ‘#demo’,  data: {    firstName: ‘Foo’,    lastName: ‘Bar’,">
   
     <link rel="alternate" href="/atom.xml" title="应该灿烂的神国" type="application/atom+xml">
   
@@ -65,24 +65,41 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-New Document" class="article article-type-post" itemscope="" itemprop="blogPost">
+        <section id="main"><article id="post-Vue" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/01/17/New Document/" class="article-date">
-  <time datetime="2019-01-17T06:32:24.541Z" itemprop="datePublished">2019-01-17</time>
+    <a href="/2019/01/18/Vue/" class="article-date">
+  <time datetime="2019-01-18T08:17:55.657Z" itemprop="datePublished">2019-01-18</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Vue
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<h2 id="title-wuliao"><a href="#title-wuliao" class="headerlink" title="title: wuliao"></a>title: wuliao</h2><h3 id="你好"><a href="#你好" class="headerlink" title="你好"></a>你好</h3><h3 id="啊啊啊"><a href="#啊啊啊" class="headerlink" title="啊啊啊"></a>啊啊啊</h3>
+        <p>计算属性模块：{<br>计算属性：function（）{}//geter，一般只有这个。</p>
+<p>}</p>
+<p>计算属性模块：{<br>计算属性：{<br>getter：function（）{}，<br>setter：function（）{}//默认只有getter，可以添加<br>}</p>
+<p>}</p>
+<hr>
+<p>var vm = new Vue({<br>  el: ‘#demo’,<br>  data: {<br>    firstName: ‘Foo’,<br>    lastName: ‘Bar’,<br>    fullName: ‘Foo Bar’<br>  },<br>  watch: {//侦听器<br>    firstName: function (val) {<br>      this.fullName = val + ‘ ‘ + this.lastName<br>    },<br>    lastName: function (val) {<br>      this.fullName = this.firstName + ‘ ‘ + val<br>    }<br>  }<br>})</p>
+<hr>
+<p>computed: {<br>  now: function () {<br>    return Date.now()<br>  }<br>}<br>这种是返回方法会消耗等很久，返回属性会有缓存。</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/17/New Document/" data-id="cjr1td51t0000jwum6kv3r77i" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/18/Vue/" data-id="cjr1td52a0002jwumlfv1ca95" class="article-share-link">Share</a>
       
       
     </footer>
@@ -91,19 +108,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/01/17/you/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          一篇糟糕的md文件写成html
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/01/17/你好啊/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/01/18/nodejs stream流/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">你好啊</div>
+      <div class="article-nav-title">node.js stream</div>
     </a>
   
 </nav>
