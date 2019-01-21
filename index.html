@@ -66,6 +66,133 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-特性CallerMemberName、CallerFilePath和CallerLineNumber" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/21/特性CallerMemberName、CallerFilePath和CallerLineNumber/" class="article-date">
+  <time datetime="2019-01-21T03:58:23.232Z" itemprop="datePublished">2019-01-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/21/特性CallerMemberName、CallerFilePath和CallerLineNumber/">C# CallerMemberName、CallerFilePath和CallerLineNumber特性</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这三个特性是，获取属性（成员名称）、文件路径、第几行号：<br>例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"> /// &lt;summary&gt;</span><br><span class="line">        /// Writes the error.</span><br><span class="line">        /// &lt;/summary&gt;</span><br><span class="line">        /// &lt;param name=&quot;message&quot;&gt;The message to be written.&lt;/param&gt;</span><br><span class="line">        public void WriteError(object message)</span><br><span class="line">        &#123;</span><br><span class="line">            _log4Net.Error(message);</span><br><span class="line">        &#125;复制代码</span><br><span class="line">如果想区分调用来源就比较麻烦了。在.Net 4.5中引入了三个Attribute：CallerMemberName、CallerFilePath和CallerLineNumber 。在编译器的配合下，分别可以获取到调用函数（准确讲应该是成员）名称，调用文件及调用行号。这时可以把方法改成：</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">      /// &lt;summary&gt;</span><br><span class="line">        /// Writes an error level logging message.</span><br><span class="line">        /// &lt;/summary&gt;</span><br><span class="line">        /// &lt;param name=&quot;message&quot;&gt;The message to be written.&lt;/param&gt;</span><br><span class="line">        public void WriteError(object message,</span><br><span class="line">        [CallerMemberName] string memberName = &quot;&quot;,</span><br><span class="line">        [CallerFilePath] string sourceFilePath = &quot;&quot;,</span><br><span class="line">        [CallerLineNumber] int sourceLineNumber = 0)</span><br><span class="line">        &#123;</span><br><span class="line">            _log4Net.ErrorFormat(&quot;文件:&#123;0&#125; 行号:&#123;1&#125; 方法名:&#123;2&#125;,消息:&#123;3&#125;&quot;, sourceFilePath, sourceLineNumber, memberName, message);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://www.cnblogs.com/zeroes/p/6031651.html?utm_source=itdadao&amp;utm_medium=referral" target="_blank" rel="noopener">参考</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/21/特性CallerMemberName、CallerFilePath和CallerLineNumber/" data-id="cjr5v94va0001gcumrlfvtlc9" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-MVVm模式" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/21/MVVm模式/" class="article-date">
+  <time datetime="2019-01-21T03:30:24.061Z" itemprop="datePublished">2019-01-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/21/MVVm模式/">MVVM模式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Model- ViewModel-View</p>
+<p>Model:主要是定义属性；<br>ViewModel：视图数据响应，一般需要继承INotifyPropertyChanged。主要是数据的处理。<br>View：从ViewModel获取数据并显示数据。</p>
+<p>INotifyPropertyChanged</p>
+<p>//实现数据变动接口</p>
+<pre><code>#region INotifyPropertyChanged
+public event PropertyChangedEventHandler PropertyChanged;//事件委托
+protected void OnPropertyChanged([CallerMemberName] string propertyName = &quot;&quot;)
+{
+    var changed = PropertyChanged;
+    if (changed == null)
+        return;
+
+    changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
+}
+#endregion
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/21/MVVm模式/" data-id="cjr5v9tas0000a8umria9fhiz" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-xamarin" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/21/xamarin/" class="article-date">
+  <time datetime="2019-01-21T01:36:12.269Z" itemprop="datePublished">2019-01-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/21/xamarin/">xamarin</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="xamarin"><a href="#xamarin" class="headerlink" title="xamarin"></a>xamarin</h1><p>缓慢函数，直接：Easing调用，作为动画的参数使用<br>Easing 类定义了大量可供动画的缓动函数：<br>BounceIn 缓动函数弹跳动画的开头。<br>BounceOut 缓动函数弹跳动画结束时。<br>CubicIn 缓动函数缓慢加速动画。<br>CubicInOut 缓动函数在开始时，动画加速和减速的动画结束时。<br>CubicOut 快速缓动函数减速的动画。<br>Linear 缓动函数使用常量的速度，并且默认的缓动函数。<br>SinIn 顺利缓动函数加速动画。<br>SinInOut 顺利缓动函数加快在开始时，动画并平稳减速的动画结束时。<br>SinOut 顺利缓动函数减速的动画。<br>SpringIn 缓动函数使动画结束时非常快速地加快速度。<br>SpringOut 缓动函数使动画结束时快速减速。<br>In和Out后缀指示缓动函数提供的效果是明显的动画，和 / 或结束时，在开头。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">await image.TranslateTo(0, 200, 2000, Easing.BounceIn);</span><br><span class="line">await image.ScaleTo(2, 2000, Easing.CubicIn);</span><br><span class="line">await image.RotateTo(360, 2000, Easing.SinInOut);</span><br><span class="line">await image.ScaleTo(1, 2000, Easing.CubicOut);</span><br><span class="line">await image.TranslateTo(0, -200, 2000, Easing.BounceOut);</span><br></pre></td></tr></table></figure></p>
+<p>关于xaml定义name属性，有时需要重新生成解决方案<br>自定义动画，没看</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/21/xamarin/" data-id="cjr5v94ut0000gcum0wnma6hx" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Vue" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/01/18/Vue/" class="article-date">
@@ -100,7 +227,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/18/Vue/" data-id="cjr1td52a0002jwumlfv1ca95" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/18/Vue/" data-id="cjr5v7ydf0001yoump7hw9ixb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -152,7 +279,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/18/nodejs stream流/" data-id="cjr1td52h0004jwum3fkot8cu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/18/nodejs stream流/" data-id="cjr5v7ye10007youmwfadnpvk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -203,7 +330,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/18/nodejsUtil/" data-id="cjr1td52k0005jwumhoykgc1t" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/18/nodejsUtil/" data-id="cjr5v7ydr0004youmlrz1tkvm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -266,7 +393,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/18/nodejshttp模块/" data-id="cjr1td52o0006jwumbn3ecj2g" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/18/nodejshttp模块/" data-id="cjr5v7ydu0005youml2qud1ae" class="article-share-link">Share</a>
       
       
     </footer>
@@ -335,7 +462,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/18/http/" data-id="cjr1td52e0003jwumhxzyc1q0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/18/http/" data-id="cjr5v7ydn0003youmgxnuzezb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -469,7 +596,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/17/you/" data-id="cjr1td52u0008jwumpeg7t6bu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/17/you/" data-id="cjr5v7yeg0008youmovf5chf5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -496,88 +623,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/17/New Document/" data-id="cjr1td51t0000jwum6kv3r77i" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-你好啊" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/01/17/你好啊/" class="article-date">
-  <time datetime="2019-01-17T05:43:56.000Z" itemprop="datePublished">2019-01-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/17/你好啊/">你好啊</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/17/你好啊/" data-id="cjr1td52r0007jwum26kbvqma" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/01/17/hello-world/" class="article-date">
-  <time datetime="2019-01-17T03:39:14.869Z" itemprop="datePublished">2019-01-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/17/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/17/hello-world/" data-id="cjr1td5260001jwumthaet03m" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/17/New Document/" data-id="cjr5v7ycz0000youms29753we" class="article-share-link">Share</a>
       
       
     </footer>
@@ -588,6 +634,11 @@
 
   
 
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+  </nav>
 
 </section>
         
@@ -618,23 +669,23 @@
       <ul>
         
           <li>
+            <a href="/2019/01/21/特性CallerMemberName、CallerFilePath和CallerLineNumber/">C# CallerMemberName、CallerFilePath和CallerLineNumber特性</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/21/MVVm模式/">MVVM模式</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/21/xamarin/">xamarin</a>
+          </li>
+        
+          <li>
             <a href="/2019/01/18/Vue/">Vue</a>
           </li>
         
           <li>
             <a href="/2019/01/18/nodejs stream流/">node.js stream</a>
-          </li>
-        
-          <li>
-            <a href="/2019/01/18/nodejsUtil/">node.js 的util工具</a>
-          </li>
-        
-          <li>
-            <a href="/2019/01/18/nodejshttp模块/">nodejs的http模块</a>
-          </li>
-        
-          <li>
-            <a href="/2019/01/18/http/">1月18日 http协议</a>
           </li>
         
       </ul>

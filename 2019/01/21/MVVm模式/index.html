@@ -5,20 +5,20 @@
   
 
   
-  <title>你好啊 | 应该灿烂的神国</title>
+  <title>MVVM模式 | 应该灿烂的神国</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="神梦">
+  <meta name="description" content="Model- ViewModel-View Model:主要是定义属性；ViewModel：视图数据响应，一般需要继承INotifyPropertyChanged。主要是数据的处理。View：从ViewModel获取数据并显示数据。 INotifyPropertyChanged //实现数据变动接口 #region INotifyPropertyChanged public event Prope">
 <meta name="keywords" content="今天吃什么">
 <meta property="og:type" content="article">
-<meta property="og:title" content="你好啊">
-<meta property="og:url" content="http://yoursite.com/2019/01/17/你好啊/index.html">
+<meta property="og:title" content="MVVM模式">
+<meta property="og:url" content="http://yoursite.com/2019/01/21/MVVm模式/index.html">
 <meta property="og:site_name" content="应该灿烂的神国">
-<meta property="og:description" content="神梦">
+<meta property="og:description" content="Model- ViewModel-View Model:主要是定义属性；ViewModel：视图数据响应，一般需要继承INotifyPropertyChanged。主要是数据的处理。View：从ViewModel获取数据并显示数据。 INotifyPropertyChanged //实现数据变动接口 #region INotifyPropertyChanged public event Prope">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-17T06:08:09.609Z">
+<meta property="og:updated_time" content="2019-01-21T05:04:47.613Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="你好啊">
-<meta name="twitter:description" content="神梦">
+<meta name="twitter:title" content="MVVM模式">
+<meta name="twitter:description" content="Model- ViewModel-View Model:主要是定义属性；ViewModel：视图数据响应，一般需要继承INotifyPropertyChanged。主要是数据的处理。View：从ViewModel获取数据并显示数据。 INotifyPropertyChanged //实现数据变动接口 #region INotifyPropertyChanged public event Prope">
   
     <link rel="alternate" href="/atom.xml" title="应该灿烂的神国" type="application/atom+xml">
   
@@ -65,10 +65,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-你好啊" class="article article-type-post" itemscope="" itemprop="blogPost">
+        <section id="main"><article id="post-MVVm模式" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/01/17/你好啊/" class="article-date">
-  <time datetime="2019-01-17T05:43:56.000Z" itemprop="datePublished">2019-01-17</time>
+    <a href="/2019/01/21/MVVm模式/" class="article-date">
+  <time datetime="2019-01-21T03:30:24.061Z" itemprop="datePublished">2019-01-21</time>
 </a>
     
   </div>
@@ -79,7 +79,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      你好啊
+      MVVM模式
     </h1>
   
 
@@ -87,11 +87,26 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>Model- ViewModel-View</p>
+<p>Model:主要是定义属性；<br>ViewModel：视图数据响应，一般需要继承INotifyPropertyChanged。主要是数据的处理。<br>View：从ViewModel获取数据并显示数据。</p>
+<p>INotifyPropertyChanged</p>
+<p>//实现数据变动接口</p>
+<pre><code>#region INotifyPropertyChanged
+public event PropertyChangedEventHandler PropertyChanged;//事件委托
+protected void OnPropertyChanged([CallerMemberName] string propertyName = &quot;&quot;)
+{
+    var changed = PropertyChanged;
+    if (changed == null)
+        return;
+
+    changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
+}
+#endregion
+</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/17/你好啊/" data-id="cjr5v7ydx0006youm6wnp4ouc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/21/MVVm模式/" data-id="cjr5v9tas0000a8umria9fhiz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -100,19 +115,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/01/17/New Document/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/01/21/特性CallerMemberName、CallerFilePath和CallerLineNumber/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          (no title)
+          C# CallerMemberName、CallerFilePath和CallerLineNumber特性
         
       </div>
     </a>
   
   
-    <a href="/2019/01/17/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/01/21/xamarin/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hello World</div>
+      <div class="article-nav-title">xamarin</div>
     </a>
   
 </nav>
