@@ -12,7 +12,7 @@
     
     
     
-    <title>archive_a | 应该灿烂的神国</title>
+    <title>应该灿烂的神国</title>
     <link href="”http://yoursite.com“" rel="”prefetch”">
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -95,7 +95,7 @@
                 
                 
                 
-                <li class="current">
+                <li class="">
                     <a href="/archives">
                         <i class="fa fa-archive"></i>归档
                     </a>
@@ -138,19 +138,27 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <article class="article well article-body" id="article-archive">
+                    
+<article class="article well article-body" id="article">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
         <a href="http://yoursite.com">应该灿烂的神国</a>
         >
-        <span>归档</span>
+        <span></span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/archives">归档</a>
+                <a href="/2019/01/25/ActionT和FuncT的用法/"></a>
             </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2019-01-25
+            </span>
+            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -158,103 +166,35 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/archives">归档</a>
+                    <a href="/2019/01/25/ActionT和FuncT的用法/"></a>
                 </h4>
             </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2019-01-25
+            </p>
+            <p>
+                
+                
+            </p>
         </center>
     </div>
-    <div class="content-article" style="margin-top: 30px;">
-        
-        
-            <h1 style="font-size: 24px; margin-top: 40px;">2019年</h1>
-            
-        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
-            
-             
-             
-                        <a href="/2019/01/25/ActionT和FuncT的用法/"></a>
-                        <br>
-            
-             
-                        <a href="/2019/01/25/接口/">接口</a>
-                        <br>
-            
-             
-                        <a href="/2019/01/25/命令模式/">命令模式</a>
-                        <br>
-            
-             
-                        <a href="/2019/01/24/C#委托/">C#委托</a>
-                        <br>
-            
-             
-                        <a href="/2019/01/23/xamarin上传图片/">xamarin上传图片</a>
-                        <br>
-            
-             
-                        <a href="/2019/01/22/xamarin布局/">xamarin</a>
-                        <br>
-            
-             
-                        <a href="/2019/01/21/搜索/">怎么安装使用搜索功能</a>
-                        <br>
-            
-             
-                        <a href="/2019/01/21/加藤/"></a>
-                        <br>
-            
-             
-                        <a href="/2019/01/21/特性CallerMemberName、CallerFilePath和CallerLineNumber/">C# CallerMemberName、CallerFilePath和CallerLineNumber特性</a>
-                        <br>
-            
-             
-                        <a href="/2019/01/21/MVVm模式/">MVVM模式</a>
-                        <br>
-            
-             
-                        <a href="/2019/01/21/xamarin/">xamarin</a>
-                        <br>
-            
-             
-                        <a href="/2019/01/18/Vue/">Vue</a>
-                        <br>
-            
-             
-                        <a href="/2019/01/18/nodejs stream流/">node.js stream</a>
-                        <br>
-            
-             
-                        <a href="/2019/01/18/nodejsUtil/">node.js 的util工具</a>
-                        <br>
-            
-             
-                        <a href="/2019/01/18/nodejshttp模块/">nodejs的http模块</a>
-                        <br>
-            
-             
-                        <a href="/2019/01/18/http/">1月18日 http协议</a>
-                        <br>
-            
-             
-                        <a href="/2019/01/17/you/">一篇糟糕的md文件写成html</a>
-                        <br>
-            
-             
-                        <a href="/2019/01/17/New Document/"></a>
-                        <br>
-            
-             
-                        <a href="/2019/01/17/你好啊/">你好啊</a>
-                        <br>
-            
-             
-                        <a href="/2019/01/17/hello-world/">Hello World</a>
-                        <br>
-            
-                    </div>
-        
+    <div class="content-article">
+        <p>··C# 中的委托（Delegate）类似于 C 或 C++ 中函数的指针。委托是保存对某个方法引用的一种引用类型变量。</p>
+<p>使用Action&lt;T1，T2&gt;委托，则不需要显式定义委托，用于封装具有两个参数的方法。</p>
+<p>若要引用的方法，具有两个参数并返回一个值，使用泛型Func&lt;T1，T2，TResult&gt;委托。</p>
+<p>使用Action&lt;T1, T2&gt;委托，则不需要显式定义委托：</p>
+<p>1<br>using System;<br>2<br>using System.IO;<br>3<br>public class TestAction2<br>4<br>｛<br>5<br>   public static void Main()<br>6<br>   ｛<br>7<br>      string message1 = “The first line of a message.”;<br>8<br>      string message2 = “The second line of a message.”;<br>9<br>      Action&lt;string, string&gt; concat;<br>10<br>      if (Environment.GetCommandLineArgs().Length &gt; 1)<br>11<br>         concat = WriteToFile;<br>12<br>      else<br>13<br>         concat = WriteToConsole;<br>14<br>      concat(message1, message2);<br>15<br>   ｝<br>16<br>   private static void WriteToConsole(string string1, string string2)<br>17<br>   ｛<br>18<br>      Console.WriteLine(“｛0｝\n｛1｝”, string1, string2);<br>19<br>   ｝<br>20<br>   private static void WriteToFile(string string1, string string2)<br>21<br>   ｛<br>22<br>      StreamWriter writer = null;<br>23<br>      try<br>24<br>      ｛<br>25<br>         writer = new StreamWriter(Environment.GetCommandLineArgs()[1], false);<br>26<br>         writer.WriteLine(“｛0｝\n｛1｝”, string1, string2);<br>27<br>      ｝<br>28<br>      catch<br>29<br>      ｛<br>30<br>         Console.WriteLine(“File write operation failed…”);<br>31<br>      ｝<br>32<br>      finally<br>33<br>      ｛<br>34<br>         if (writer != null) writer.Close();<br>35<br>      ｝<br>36<br>   ｝<br>37<br>｝<br>38<br>​</p>
+<p>二、使用delegate定义有返回值的委托：</p>
+<p>1<br>using System;<br>2<br>delegate string[] ExtractMethod(string stringToManipulate, int maximum);<br>3<br>public class DelegateExample<br>4<br>｛<br>5<br>   public static void Main()<br>6<br>   ｛<br>7<br>      ExtractMethod extractMeth = ExtractWords;<br>8<br>      string title = “The Scarlet Letter”;<br>9<br>      foreach (string word in extractMeth(title, 5))<br>10<br>         Console.WriteLine(word);<br>11<br>   ｝<br>12<br>   private static string[] ExtractWords(string phrase, int limit)<br>13<br>   ｛<br>14<br>      char[] delimiters = new char[] ｛’ ‘｝;<br>15<br>      if (limit &gt; 0)<br>16<br>         return phrase.Split(delimiters, limit);<br>17<br>      else<br>18<br>         return phrase.Split(delimiters);<br>19<br>   ｝<br>20<br>｝<br>21<br>​</p>
+<p>使用泛型Func&lt;T1，T2，TResult&gt;委托， 则不需要显式定义委托：</p>
+<p>1<br>using System;<br>2<br>public class GenericFunc<br>3<br>｛<br>4<br>   public static void Main()<br>5<br>   ｛<br>6<br>      Func&lt;string, int, string[]&gt; extractMethod = ExtractWords;<br>7<br>      string title = “The Scarlet Letter”;<br>8<br>      foreach (string word in extractMethod(title, 5))<br>9<br>         Console.WriteLine(word);<br>10<br>   ｝<br>11<br>   private static string[] ExtractWords(string phrase, int limit)<br>12<br>   ｛<br>13<br>      char[] delimiters = new char[] ｛’ ‘｝;<br>14<br>      if (limit &gt; 0)<br>15<br>         return phrase.Split(delimiters, limit);<br>16<br>      else<br>17<br>         return phrase.Split(delimiters);<br>18<br>   ｝<br>19<br>｝<br>20<br>​</p>
+<p>总结：<br>delegate string[] ExtractMethod(string stringToManipulate, int maximum);===Action&lt;类型的canshu,类型的canshu&gt;<br>使用Action&lt;T1，T2&gt;委托和Func&lt;T1，T2，TResult&gt;委托，可以简化代码，让逻辑更清晰。</p>
+<p>delegate string[] ExtractMethod(string stringToManipulate, int maximum);===  Func&lt;string, int, string[]&gt; extractMethod = ExtractWords;</p>
+
     </div>
 </article>
+
+
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
