@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[js作用域以及作用域链]]></title>
+    <url>%2F2019%2F01%2F28%2F%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE%2F</url>
+    <content type="text"><![CDATA[函数的作用域在函数创建定义的时候就决定了，并不是由在哪里运行决定的。 当前的作用域中如果找不到变量，会从父作用域寻找变量定义，一直找下去，直到找到全局作用域，如果有就是有，没有就报错。这就是作用域链。 那么原型链呢。先说明，原型链与作用域链不是一样的东西。 原型关系到属性继承，作用域链，只是运行时变量的作用范围。 作用范围与继承还是有区别的。 突然发现吧原型链换成继承链真的好理解，不知道会不会理解错。]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[js闭包]]></title>
+    <url>%2F2019%2F01%2F28%2Fjs%E9%97%AD%E5%8C%85%2F</url>
+    <content type="text"><![CDATA[闭包函数作为参数，或者返回值。定义的返回函数是确定了作用域，使用了使用自由变量，即是不会被销毁函数的上下文对象； 返回函数奶住了函数执行环境的最后一口气，应该叫做闭包。]]></content>
+  </entry>
+  <entry>
     <title></title>
     <url>%2F2019%2F01%2F25%2FActionT%E5%92%8CFuncT%E7%9A%84%E7%94%A8%E6%B3%95%2F</url>
     <content type="text"><![CDATA[··C# 中的委托（Delegate）类似于 C 或 C++ 中函数的指针。委托是保存对某个方法引用的一种引用类型变量。 使用Action&lt;T1，T2&gt;委托，则不需要显式定义委托，用于封装具有两个参数的方法。 若要引用的方法，具有两个参数并返回一个值，使用泛型Func&lt;T1，T2，TResult&gt;委托。 使用Action&lt;T1, T2&gt;委托，则不需要显式定义委托： 1using System;2using System.IO;3public class TestAction24｛5 public static void Main()6 ｛7 string message1 = “The first line of a message.”;8 string message2 = “The second line of a message.”;9 Action&lt;string, string&gt; concat;10 if (Environment.GetCommandLineArgs().Length &gt; 1)11 concat = WriteToFile;12 else13 concat = WriteToConsole;14 concat(message1, message2);15 ｝16 private static void WriteToConsole(string string1, string string2)17 ｛18 Console.WriteLine(“｛0｝\n｛1｝”, string1, string2);19 ｝20 private static void WriteToFile(string string1, string string2)21 ｛22 StreamWriter writer = null;23 try24 ｛25 writer = new StreamWriter(Environment.GetCommandLineArgs()[1], false);26 writer.WriteLine(“｛0｝\n｛1｝”, string1, string2);27 ｝28 catch29 ｛30 Console.WriteLine(“File write operation failed…”);31 ｝32 finally33 ｛34 if (writer != null) writer.Close();35 ｝36 ｝37｝38​ 二、使用delegate定义有返回值的委托： 1using System;2delegate string[] ExtractMethod(string stringToManipulate, int maximum);3public class DelegateExample4｛5 public static void Main()6 ｛7 ExtractMethod extractMeth = ExtractWords;8 string title = “The Scarlet Letter”;9 foreach (string word in extractMeth(title, 5))10 Console.WriteLine(word);11 ｝12 private static string[] ExtractWords(string phrase, int limit)13 ｛14 char[] delimiters = new char[] ｛’ ‘｝;15 if (limit &gt; 0)16 return phrase.Split(delimiters, limit);17 else18 return phrase.Split(delimiters);19 ｝20｝21​ 使用泛型Func&lt;T1，T2，TResult&gt;委托， 则不需要显式定义委托： 1using System;2public class GenericFunc3｛4 public static void Main()5 ｛6 Func&lt;string, int, string[]&gt; extractMethod = ExtractWords;7 string title = “The Scarlet Letter”;8 foreach (string word in extractMethod(title, 5))9 Console.WriteLine(word);10 ｝11 private static string[] ExtractWords(string phrase, int limit)12 ｛13 char[] delimiters = new char[] ｛’ ‘｝;14 if (limit &gt; 0)15 return phrase.Split(delimiters, limit);16 else17 return phrase.Split(delimiters);18 ｝19｝20​ 总结：delegate string[] ExtractMethod(string stringToManipulate, int maximum);===Action&lt;类型的canshu,类型的canshu&gt;使用Action&lt;T1，T2&gt;委托和Func&lt;T1，T2，TResult&gt;委托，可以简化代码，让逻辑更清晰。 delegate string[] ExtractMethod(string stringToManipulate, int maximum);=== Func&lt;string, int, string[]&gt; extractMethod = ExtractWords;]]></content>
