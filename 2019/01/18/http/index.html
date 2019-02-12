@@ -179,13 +179,13 @@
         </center>
     </div>
     <div class="content-article">
-        <h1 id="http协议"><a href="#http协议" class="headerlink" title="http协议"></a>http协议</h1><p>浏览器F12 network给出信息与http报文不太一样，虽说能找到一样请求地址之类的东西，但是……………………有点get不到点上脑子痛</p>
+        <h1 id="http协议"><a href="#http协议" class="headerlink" title="http协议"></a>http协议</h1><p>浏览器按F12查看network给出信息与http报文不太一样，虽说能找到一样请求地址之类的东西，但是有点get不到点上脑子痛，或者说是浏览器的整理功能？</p>
 <p>无语</p>
-<p>http请求特点：无状态。这次的请求与上一次的请求没有联系。一般cookie和session强行联系，即是http携带COokie或session的数据。</p>
+<p>【http请求】的特点：无状态。每次请求都是新的，这次的请求与上一次的请求没有联系。所以，一般用cookie和session强行联系，即是http携带Cookie或session的数据。</p>
 <p>http报文由三部分组成:开始行（请求行）、首部行和实体主体<br>三个部分之间要换行，首部行与实体隔开一个空行<br>开始行（请求行）：        方法 url 版本 （之间有空格）<br>首部行：             字段：值</p>
 <p>主体；</p>
 <hr>
-<p>例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">GET /wxisme HTTP/1.1  </span><br><span class="line">Host: www.cnblogs.com </span><br><span class="line">User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.0; zh-CN; rv:1.8.1) Gecko/20061010 Firefox/2.0  </span><br><span class="line">Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5  </span><br><span class="line">Accept-Language: en-us,zh-cn;q=0.7,zh;q=0.3  </span><br><span class="line">Accept-Encoding: gzip,deflate  </span><br><span class="line">Accept-Charset: gb2312,utf-8;q=0.7,*;q=0.7  </span><br><span class="line">Keep-Alive: 300  </span><br><span class="line">Proxy-Connection: keep-alive  </span><br><span class="line">Cookie: ASP.NET_SessionId=ey5drq45lsomio55hoydzc45</span><br><span class="line">Cache-Control: max-age=0</span><br></pre></td></tr></table></figure></p>
+<p>例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">GET /wxisme HTTP/1.1  （请求行）</span><br><span class="line">Host: www.cnblogs.com  （首部行）</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.0; zh-CN; rv:1.8.1) Gecko/20061010 Firefox/2.0  </span><br><span class="line">Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5  </span><br><span class="line">Accept-Language: en-us,zh-cn;q=0.7,zh;q=0.3  </span><br><span class="line">Accept-Encoding: gzip,deflate  </span><br><span class="line">Accept-Charset: gb2312,utf-8;q=0.7,*;q=0.7  </span><br><span class="line">Keep-Alive: 300  </span><br><span class="line">Proxy-Connection: keep-alive  </span><br><span class="line">Cookie: ASP.NET_SessionId=ey5drq45lsomio55hoydzc45</span><br><span class="line">Cache-Control: max-age=0</span><br></pre></td></tr></table></figure></p>
 <p>响应报文（格式和请求报文一样）：<br>开始行：版本 状态码 短语<br>首部行：字段：值</p>
 <p>实体主体；</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Date: Tue, 12 Jul 2016 21:36:12 GMT</span><br><span class="line">Content-Length: 563</span><br><span class="line">Content-Type: text/html</span><br><span class="line"></span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">    Hello http!</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
@@ -210,7 +210,7 @@
 <p>　　CONNECT方法要求在与代理服务器通信时建立隧道，实现用隧道协议进行TCP通信。主要使用SSL/TLS协议对通信内容加密后传输。</p>
 <p>get与post请求：<br>get携带参数会携带在url？或者&amp;符号后面，容易被获取信息，并且url长度有限制，所以get请求方式会有大小限制；<br>post请求会把参数加密；</p>
 <hr>
-<p>session与cookie<br>    &gt;Coolie保存在客户端<br>    &gt;session保存在服务器<br>    &gt;session基于Cookie之上操作。<br>    &gt;session给了Cookie一条钥匙，让服务器辨认。</p>
+<p>session与cookie<br>    &gt;Coolie保存在客户端<br>    &gt;session保存在服务器<br>    &gt;session基于Cookie之上操作（session返回的sessionid会被保留在Cookie里面）。<br>    &gt;session给了Cookie一条钥匙，让服务器辨认（如过sessionID相同，就是同一个回话。。。。应对解决http的无状态特点）。</p>
 <p>首部行&amp;以上参考：<a href="https://www.cnblogs.com/wxisme/p/6212797.html" target="_blank" rel="noopener">https://www.cnblogs.com/wxisme/p/6212797.html</a></p>
 
     </div>

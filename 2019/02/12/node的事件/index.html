@@ -12,7 +12,7 @@
     
     
     
-    <title>C#委托 | 无穷之门</title>
+    <title>nodejs的事件 | 无穷之门</title>
     <link href="”http://yoursite.com“" rel="”prefetch”">
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -144,19 +144,19 @@
         <i class="fa fa-home"></i>
         <a href="http://yoursite.com">无穷之门</a>
         >
-        <span>C#委托</span>
+        <span>nodejs的事件</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2019/01/24/C#委托/">C#委托</a>
+                <a href="/2019/02/12/node的事件/">nodejs的事件</a>
             </h1>
         </div>
         <div class="tag-article">
             
             <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2019-01-24
+                <i class="fa fa-calendar"></i> 2019-02-12
             </span>
             
         </div>
@@ -166,11 +166,11 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/2019/01/24/C#委托/">C#委托</a>
+                    <a href="/2019/02/12/node的事件/">nodejs的事件</a>
                 </h4>
             </div>
             <p>
-                <i class="fa fa-calendar"></i> 2019-01-24
+                <i class="fa fa-calendar"></i> 2019-02-12
             </p>
             <p>
                 
@@ -179,10 +179,28 @@
         </center>
     </div>
     <div class="content-article">
-        <h1 id="委托"><a href="#委托" class="headerlink" title="委托"></a>委托</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">using System;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using System.Linq;</span><br><span class="line">using System.Text;</span><br><span class="line"></span><br><span class="line">namespace Example_EventTest</span><br><span class="line">&#123;</span><br><span class="line">//这是事件绑定及触发使用委托。</span><br><span class="line">---------------------------------------------------------------------------------------</span><br><span class="line">无参数委托；</span><br><span class="line">    class Judgment</span><br><span class="line">    &#123; </span><br><span class="line">        //定义一个委托</span><br><span class="line">        public delegate void delegateRun(); </span><br><span class="line">        //定义一个事件</span><br><span class="line">        public event delegateRun eventRun;</span><br><span class="line">        //引发事件的方法</span><br><span class="line">        public void Begin()</span><br><span class="line">        &#123;</span><br><span class="line">			触发事件是加括号使用/？</span><br><span class="line">            eventRun();//被引发的事件</span><br><span class="line">        &#125; </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">------------------------------------------------------------------------------------------</span><br><span class="line">单纯一个类，一个类里有一个方法。</span><br><span class="line">    class RunSports//这个类的方法委托上面的委托执行</span><br><span class="line">    &#123; </span><br><span class="line">        //定义事件处理方法</span><br><span class="line">        public void Run()</span><br><span class="line">        &#123;</span><br><span class="line">            Console.WriteLine(&quot;运动员开始比赛&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">-------------------------------------------------------------------------------------------</span><br><span class="line">    class Program</span><br><span class="line">    &#123;</span><br><span class="line">        static void Main(string[] args)</span><br><span class="line">        &#123;</span><br><span class="line">            RunSports runsport = new RunSports();//实例化事件发布者</span><br><span class="line">            Judgment judgment = new Judgment();//实例化事件订阅者</span><br><span class="line">            //订阅事件，给事件绑定委托，被委托的方法。</span><br><span class="line">            judgment.eventRun+=new Judgment.delegateRun(runsport.Run);//此处传进一个runsport.Run方法，委托Judgment实现|（也可以穿其他方法）</span><br><span class="line">            //引发事件</span><br><span class="line">            judgment.Begin();//begin方法的eventRun事件触发，事件被委托到到delegateRun，这个委托方法实现runsport.Run。</span><br><span class="line">            Console.ReadKey();//按任意键继续…………</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>听说点击事件也算委托，可以对比一下理解？给点击时间绑定事件</p>
-<p>另一种，给委托事件绑上事件<br>using System;<br>using System.IO;<br>delegate void ConcatStrings(string string1, string string2);//带参数的委托<br>public class TestDelegate<br>｛<br>   public static void Main()  //主方法<br>   ｛<br>      string message1 = “The first line of a message.”;//一条信息<br>      string message2 = “The second line of a message.”;//的字符串<br>      ConcatStrings concat;//一个委托，方法对象。<br>      if (Environment.GetCommandLineArgs().Length &gt; 1)<br>         concat = WriteToFile;<br>      else<br>         concat = WriteToConsole;<br>      concat(message1, message2);<br>   ｝<br>   private static void WriteToConsole(string string1, string string2)<br>   ｛<br>      Console.WriteLine(“｛0｝\n｛1｝”, string1, string2);<br>   ｝<br>   private static void WriteToFile(string string1, string string2)<br>   ｛<br>      StreamWriter writer = null;<br>      try<br>      ｛<br>         writer = new StreamWriter(Environment.GetCommandLineArgs()[1], false);<br>         writer.WriteLine(“｛0｝\n｛1｝”, string1, string2);<br>      ｝<br>      catch<br>      ｛<br>         Console.WriteLine(“File write operation failed…”);<br>      ｝<br>      finally<br>      ｛<br>         if (writer != null) writer.Close();<br>      ｝<br>   ｝</p>
-<h2 id="｝"><a href="#｝" class="headerlink" title="｝"></a>｝</h2><p>委托会把委托编译成类，所以调用相当于委托 变量= new 委托（参数）第二种·方法吧。</p>
+        <p>Node.js EventEmitter<br>EventEmitter 类<br>events 模块只提供了一个对象： events.EventEmitter。EventEmitter 的核心就是事件触发与事件监听器功能的封装。</p>
+<p>你可以通过require(“events”);来访问该模块。</p>
+<p>方法<br>序号    方法 &amp; 描述</p>
+<ol>
+<li> addListener(event, listener)<br> 为指定事件添加一个监听器到监听器数组的尾部。</li>
+<li> on(event, listener)<br> 为指定事件注册一个监听器，接受一个字符串 event 和一个回调函数。<br> server.on(‘connection’, function (stream) {<br>   console.log(‘someone connected!’);<br> });</li>
+<li> once(event, listener)<br> 为指定事件注册一个单次监听器，即 监听器最多只会触发一次，触发后立刻解除该监听器。<br> server.once(‘connection’, function (stream) {<br>   console.log(‘Ah, we have our first user!’);<br> });</li>
+<li><p> removeListener(event, listener)<br> 移除指定事件的某个监听器，监听器必须是该事件已经注册过的监听器。</p>
+<p> 它接受两个参数，第一个是事件名称，第二个是回调函数名称。<br>代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var callback = function(stream) &#123;</span><br><span class="line">  console.log(&apos;someone connected!&apos;);</span><br><span class="line">&#125;;</span><br><span class="line">server.on(&apos;connection&apos;, callback);</span><br><span class="line">// ...</span><br><span class="line">server.removeListener(&apos;connection&apos;, callback);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p> removeAllListeners([event])<br> 移除所有事件的所有监听器， 如果指定事件，则移除指定事件的所有监听器。</p>
+</li>
+<li> setMaxListeners(n)<br> 默认情况下， EventEmitters 如果你添加的监听器超过 10 个就会输出警告信息。 setMaxListeners 函数用于提高监听器的默认限制的数量。</li>
+<li> listeners(event)<br> 返回指定事件的监听器数组。<br> emit(event, [arg1], [arg2], […])（发送事件，并执行监听器）<br> 按参数的顺序执行每个监听器，如果事件有注册监听返回 true，否则返回 false。<h2 id="类方法"><a href="#类方法" class="headerlink" title="类方法"></a>类方法</h2>序号    方法 &amp; 描述</li>
+<li>listenerCount(emitter, event)<br>返回指定事件的监听器数量。额，就是直接调用的。<br>events.EventEmitter.listenerCount(emitter, eventName) //已废弃，不推荐<br>events.emitter.listenerCount(eventName) //推荐<h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2>序号    事件 &amp; 描述<br>1    newListener<br>event - 字符串，事件名称</li>
+</ol>
+<p>listener - 处理事件函数</p>
+<p>该事件在添加新监听器时被触发。</p>
+<p>2    removeListener<br>event - 字符串，事件名称</p>
+<p>listener - 处理事件函数</p>
+<p>从指定监听器数组中删除一个监听器。需要注意的是，此操作将会改变处于被删监听器之后的那些监听器的索引（会改变索引）。</p>
 
     </div>
 </article>

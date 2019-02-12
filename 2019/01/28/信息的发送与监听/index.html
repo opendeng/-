@@ -180,6 +180,9 @@
     </div>
     <div class="content-article">
         <h1 id="MessagingCenter"><a href="#MessagingCenter" class="headerlink" title="MessagingCenter"></a>MessagingCenter</h1><p>。同一个字符串标识，但不同的泛型参数内容不会被发送到同一个侦听者（正常，即是说，参数类型也参与判断是否属于同一个侦听者）。<br>一般配套使用<br>接口：<br>Subscribe<tsender> (object subscriber, string message, Action<tsender> callback, TSender source = null)//监听订阅&lt;尖括号代表侦听哪一个发送方&gt;（this是什么看接口，“字符串标识”，回调函数）<br>Subscribe&lt;TSender, TArgs&gt; (object subscriber, string message, Action&lt;TSender, TArgs&gt; callback, TSender source = null)//监听订阅、、参数：若要使用消息传递参数，请在 Subscribe 泛型参数和操作签名中指定参数类型。TArgs<br>Send<tsender> (TSender sender, string message)<br>Send&lt;TSender, TArgs&gt; (TSender sender, string message, TArgs args)<br>Unsubscribe&lt;TSender, TArgs&gt; (object subscriber, string message)<br>Unsubscribe<tsender> (object subscriber, string message)</tsender></tsender></tsender></tsender></p>
+<p>MessagingCenter.Subscribe&lt;MainPage, string&gt; (this, “Hi”, (sender, arg) =&gt; {<br>DisplayAlert(“Message Received”, “arg=” + arg, “OK”);<br>});带参数</p>
+<p>MessagingCenter.Unsubscribe&lt;MainPage, string&gt; (this, “Hi”);<br>MessagingCenter.Send<mainpage> (this, “Hi”);//发送事件<br>MessagingCenter.Send&lt;MainPage, string&gt; (this, “Hi”,”Json” );</mainpage></p>
+<p> MessagingCenter.Subscribe<mainpage> (this, “Hi”, (sender) =&gt; {<br>Greetings.Add(“Hi”);//订阅，发送方主页面。订阅方操作。主页面的按钮操作<br>});</mainpage></p>
 
     </div>
 </article>
