@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[呈现器]]></title>
+    <url>%2F2019%2F02%2F15%2F%E6%96%B0%2F</url>
+    <content type="text"><![CDATA[滴滴滴滴滴滴 不创建自定义呈现器的情况下，改变外观。通过子类化创建自定义控件，然后使用自定义控件代替原始控件。继承并重写控件的样式，使用控件。 123456789public class MyEntry : Entry&#123; public MyEntry () &#123; BackgroundColor = Color.Gray; &#125;&#125;特点：仅通过将控件子类化即可完成对每个平台上的控件背景色的更改。 但是，由于无法利用特定于平台的增强和自定义，这种技术的用途有限。 必要时，必须实现自定义呈现器。 创建 Xamarin.Forms 自定义控件。使用 Xamarin.Forms 中的自定义控件。在每个平台上为控件创建自定义呈现器。 创建呈现本机控件的呈现器类的子类。替代呈现本机控件的方法并写入逻辑以自定义控件。 通常，OnElementChanged 方法用于呈现本机控件，当创建相应的 Xamarin.Forms 控件时，调用该本机控件。向自定义呈现器类添加 ExportRenderer 属性(类似于DependencyService)，以指定其将用于呈现 Xamarin.Forms 控件。 此属性用于向 Xamarin.Forms 注册自定义呈现器。例子：ExportRenderer 属性(类似于DependencyService)：[assembly: ExportRenderer(typeof(MyEntry), typeof(MyEntryRenderer))]//类似于 (类似于DependencyService) DependencyService多平台各个功能实现； 接口-（安卓）实现-注册-DependencyService调用。]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[改变xamarin安卓应用的图标与名称，]]></title>
     <url>%2F2019%2F02%2F15%2F%E6%94%B9%E5%8F%98xamarin%E5%BA%94%E7%94%A8%E7%9A%84%E5%9B%BE%E6%A0%87%E4%B8%8E%E5%90%8D%E7%A7%B0%2F</url>
     <content type="text"><![CDATA[修改安卓的Properties下的AndroidManifest.xml修改Label和icon的内容即可。]]></content>
