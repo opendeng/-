@@ -183,14 +183,15 @@
 <li><p>不创建自定义呈现器的情况下，改变外观。<br>通过子类化创建自定义控件，然后使用自定义控件代替原始控件。<br>继承并重写控件的样式，使用控件。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class MyEntry : Entry</span><br><span class="line">&#123;</span><br><span class="line">  public MyEntry ()</span><br><span class="line">  &#123;</span><br><span class="line">    BackgroundColor = Color.Gray;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">特点：</span><br><span class="line">仅通过将控件子类化即可完成对每个平台上的控件背景色的更改。 但是，由于无法利用特定于平台的增强和自定义，这种技术的用途有限。 必要时，必须实现自定义呈现器。</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>创建 Xamarin.Forms 自定义控件。<br>使用 Xamarin.Forms 中的自定义控件。<br>在每个平台上为控件创建自定义呈现器。</p>
-</li>
-</ol>
+<li><p>创建 Xamarin.Forms 自定义控件。<br>使用 Xamarin.Forms 中的自定义控件。<br>在每个平台上为控件创建自定义呈现器。<br>2.1</p>
 <blockquote>
 <p>创建呈现本机控件的呈现器类的子类。<br>替代呈现本机控件的方法并写入逻辑以自定义控件。 通常，OnElementChanged 方法用于呈现本机控件，当创建相应的 Xamarin.Forms 控件时，调用该本机控件。<br>向自定义呈现器类添加 ExportRenderer 属性(类似于DependencyService)，以指定其将用于呈现 Xamarin.Forms 控件。 此属性用于向 Xamarin.Forms 注册自定义呈现器。<br>例子：ExportRenderer 属性(类似于DependencyService)：[assembly: ExportRenderer(typeof(MyEntry), typeof(MyEntryRenderer))]//类似于 (类似于DependencyService)</p>
 </blockquote>
+</li>
+</ol>
 <p>DependencyService多平台各个功能实现；</p>
 <p>接口-（安卓）实现-注册-DependencyService调用。</p>
+<p>呈现器：<br>页面-</p>
 
     </div>
 </article>
